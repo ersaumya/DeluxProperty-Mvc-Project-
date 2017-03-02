@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title  Deluxe Property & Automobile</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/icon.jpg" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><img src="~/Images/logo.png" width="180" height="35"/></a></li>
+                    <li><a href="#">About</a></li> 
+                    <li><a href="#">Property</a></li> 
+                    <li><a href="#">Automobile</a></li> 
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar-right"><a href="~/Admin" target="_blank">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <center>
+                | <a href="#">Property</a> | <a href="#">Automobile</a> | <a href="#">About</a> | <a href="#">Contact</a> |
+                <br />
+                <br />
+                <a href="#"><img src="~/Images/Facebook.png"> </a>
+                <a href="#"><img src="~/Images/GooglePlus.png"> </a>
+                <a href="#"><img src="~/Images/Instagram.png"> </a>
+                <a href="#"><img src="~/Images/Twitter.png"> </a>
+                <a href="#"><img src="~/Images/GooglePlay.png"> </a>
+                <p>&copy; @DateTime.Now.Year - Deluxe Property & Automobile</p>
+            </center>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

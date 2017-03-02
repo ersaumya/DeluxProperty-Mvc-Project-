@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DeluxProperty.Models.Property>
+
+@{
+    ViewBag.Title = "PropertyList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h4><a href="~/Admin">Home</a> > <a href="~/Admin/PropertyList">Property List</a></h4>
+<hr />
+<p>
+    @Html.ActionLink("Add Property","AddProperty","Admin",null,new { @class="btn btn-primary"})
+</p>
+
+<table class="table table-striped">
+    <tr>
+        <th>Image</th>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Area</th>
+        <th>City/State</th>
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model.OrderByDescending(u => u.PropertyId))
+    {
+        string src;
+        <tr>
+            <td>
+                @foreach(var i in item.PropertyImages)
+                {
+                    if(i.PropertyId==item.PropertyId)
+                    {
+                        src = i.Guid + i.Extenstion;
+                        <img src="~/Images/Property/@src" alt=""width="120" height="90" />
+                        break;
+                    }
+                }
+            </td>
+            <td style="min-width:95px;">@item.Date.ToString("dd' 'MM' 'yyyy")</td>
+            <td>@Html.DisplayFor(modelItem=>item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.Price)</td>
+            <td>@Html.DisplayFor(modelItem => item.Area)</td>
+            <td>@Html.DisplayFor(modelItem => item.City) / @Html.DisplayFor(modelItem => item.State)</td>
+            <td>
+                @Html.ActionLink("Edit","EditProperty", new {id=item.PropertyId }) |
+                @Html.ActionLink("Detail", "DetailProperty", new { id = item.PropertyId }) | 
+                @Html.ActionLink("Delete", "DeleteProperty", new { id = item.PropertyId })
+            </td>
+        </tr>
+    }
+</table>
